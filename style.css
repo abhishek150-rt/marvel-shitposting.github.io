@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,800;1,700&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.w3-topright {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+#blackPanther {
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(119, 116, 116, 0.9);
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 26px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+.chat-bot {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay {
+        overflow-y: auto;
+    }
+    .overlay a {
+        font-size: 20px
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+
+/* Style the video: 100% width and height to cover the entire window */
+
+#myVideo {
+    /* Add some content at the bottom of the video/page */
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+
+.w3-display-bottommiddle {
+    position: absolute;
+    left: 50%;
+    bottom: 15%;
+    transform: translate(-50%, 15%);
+    -ms-transform: translate(-50%, 15%);
+}
+
+@media screen and (max-width: 600px) {
+    #myVideo {
+        /* Add some content at the bottom of the video/page */
+        display: block;
+        width: 100%;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px !important;
+    }
+    p {
+        font-size: 15px !important;
+    }
+}
+
+
+/* Style the button used to pause/play the video */
+
+header {
+    width: 80%;
+    margin: 5px auto;
+    font-family: "Poppins", sans-serif;
+}
+
+.a-link {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.a-active {
+    color: yellow;
+}
+
+.a-link:hover {
+    color: yellow;
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+}
+
+body,
+html {
+    height: 100%;
+}
+
+.w3-animate-zoom {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+
+/* The hero image */
+
+main {
+    width: 100%;
+}
+
+main div {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    .w3-col.m4,
+    .w3-third {
+        width: 100% !important;
+    }
+    .w3-third img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    header {
+        width: 100%;
+    }
+    main,
+    section,
+    article,
+    aside {
+        text-align: center;
+        padding: 0 !important;
+    }
+    main h1,
+    main h2,
+    main h3,
+    main h4,
+    main h5,
+    main h6,
+    section h1,
+    section h2,
+    section h3,
+    section h4,
+    section h5,
+    section h6,
+    article h1,
+    article h2,
+    article h3,
+    article h4,
+    article h5,
+    article h6,
+    aside h1,
+    aside h2,
+    aside h3,
+    aside h4,
+    aside h5,
+    aside h6 {
+        font-size: 15px;
+    }
+    main p,
+    section p,
+    article p,
+    aside p {
+        font-size: 13px;
+        text-align: center !important;
+        padding-left: 0px !important;
+    }
+    footer {
+        background-color: green;
+    }
+    #gallery p {
+        font-size: 15px !important;
+    }
+    .w3-margin-right {
+        margin-right: 0 !important;
+    }
+    .w3-modal {
+        background-color: transparent !important;
+    }
+}
+
+#gallery img {
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+#gallery img:hover {
+    opacity: 0.8;
+}
+
+i {
+    cursor: pointer;
+}
+
+.w3-animate-zoom {
+    -webkit-animation-duration: 2s;
+    animation-duration: 1s;
+}
+
+footer {
+    background-color: black;
+    width: 100%;
+    margin: 20px auto 0 auto;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+footer div:not(:first-child) {
+    padding-left: 5px;
+}
+
+footer form {
+    width: 80%;
+    margin: auto;
+}
+
+footer form input[type="text"] {
+    -webkit-box-shadow: 2px 2px 100px #fdf7f7;
+    box-shadow: 2px 2px 100px #fdf7f7;
+}
+
+footer form .w3-button {
+    background-color: #f02c2c;
+}
+
+@media screen and (max-width: 500px) {
+    header {
+        width: 100%;
+    }
+}
+
+
+/*# sourceMappingURL=style.css.map */

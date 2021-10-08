@@ -1,241 +1,384 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Website</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Marvel Shit Posting</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-        .card-footer {
-            padding: 0!important;
-            background-color: none!important;
-            border-top: none!important;
-        }
-        
-        .row {
-            display: flex;
-            justify-content: center;
-            font-family: 'Poppins', sans-serif;
-            /* background-color: #7952b3; */
-        }
-        
-        .card {
-            height: 400px;
-        }
-        
-        .card-img-top {
-            height: 250px;
-        }
-        
-        .card-title {
-            font-weight: 800;
-        }
-    </style>
+    <link rel="stylesheet" href="/MARVEL/style.css">
+
 </head>
 
-
 <body>
-
-    <div class="container">
-        <h1 class=" text-center "><u>News App</u></h1>
-        <div class="container">
-            <div class="row my-5 w3-animate-zoom">
-                <div class="col d-flex justify-content-evenly">
-                    <button class="btn btn-sm btn-secondary" onclick="getNews()">Breaking News</button>
-                    <button class="btn btn-sm btn-danger" onclick="getSportsNews()">Sport News</button>
-                    <button class="btn btn-sm btn-success" onclick="getEntertainmentNews()">Entertainment News</button>
-                    <button class="btn btn-sm btn-warning" onclick="getHealthNews()">Health News</button>
-                    <button class="btn btn-sm btn-primary" onclick="getTechnologyNews()">Technology News</button>
-                    <button class="btn btn-sm btn-primary" onclick="getBusinessNews()">Business News</button>
-                </div>
-            </div>
-        </div>
-        <div class="row" id="row">
-
+    <div class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">
+                <i class="fas fa-home w3-margin-right "></i> Home
+            </a>
+            <a href="#">
+                <i class="fas fa-user w3-margin-right"></i> About
+            </a>
+            <a href="#">
+                <i class="fas fa-users"></i> Clients
+            </a>
+            <a href="#">
+                <i class="fas fa-envelope w3-margin-right"></i>Contact
+            </a>
 
         </div>
     </div>
 
 
+    <header>
+        <div class="w3-container w3-padding-24" style="height:80px;">
+            <a href="#">
+                <img src="logo.png" class="w3-left w3-margin-left " alt=" " style="width:70px; ">
+            </a>
 
-    <script>
-        //Using AJax Method
-        const getSportsNews = () => {
-            var row = document.querySelectorAll(".row")[1];
-            let xhttp = new XMLHttpRequest();
+            <span class="w3-right w3-margin-right w3-text-red w3-xlarge w3-margin-left" style="cursor:pointer " onclick="openNav() ">&#9776; </span>
 
+            <a href="#gallery" class="w3-button w3-right w3-round-xxlarge w3-red w3-margin-right">Gallery</a>
 
-            xhttp.open("GET", "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=c0f68841be2847279dd60256cb0b84a4", true);
-            xhttp.send();
+        </div>
+    </header>
 
-            xhttp.onload = function() {
-                const sportsNews = JSON.parse(this.responseText);
-                const articles = sportsNews.articles;
+    <!-- !The video -->
+    <div class="w3-display-container">
+        <video autoplay muted id="myVideo">
+            <source src="/MARVEL/The Best MARVEL edit on Internet.mp4" type="video/mp4">
+        </video>
 
-                let sportsNewsHtml = "";
-                for (const element of articles) {
-                    let sportsNews = `<div class="col-lg-4 my-5 w3-animate-zoom">
-                    <div class="card shadow-lg w3-round-large " >
-                <img class="card-img-top " src="${element.urlToImage}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-title">Title: ${element["title"]}</p>
-                  <div class="card-footer">
-                    <a href="${element.url}" class="btn btn-danger">Read More</a>
-                  </div>
+        <!-- Optional: some overlay text to describe the video -->
+
+        <!-- Use a button to pause/play the video with JavaScript -->
+        <button class="w3-display-bottommiddle w3-circle w3-btn" id="myBtn" onclick="myFunction()">
+            <i class="fas fa-pause w3-xxlarge w3-text-white"></i>
+        </button>
+    </div>
+
+    <!-- ! mAin portion -->
+    <main class="w3-panel w3-mobile ">
+        <section class="w3-row" style="width: 100%;">
+            <div class="w3-half">
+                <article class="w3-panel">
+                    <h3>Ultimate Spider-Man</h3>
+                    <p>Dec 8, 2016</p>
+                    <img src="https://i2.wp.com/wallpapersfortech.com/wp-content/uploads/2020/11/Miles-Morales-Spiderman-HD-Wallpaper.jpg?resize=928%2C522&ssl=1" alt="" style="width: 100%;">
+                    <p style="word-spacing: 5px; line-height:30px; padding: 10px; text-align:justify;">
+                        <strong><em>Ultimate Spider-Man</em></strong> is a superhero comic book series that was published by <span class="w3-text-blue">Marvel Comics</span> from 2000 to 2011. The series is a modernized re-imagining of Marvel's long-running
+                        spider-Man comic book franchise as part of the company's Ultimate Marvel imprint.[1] Ultimate Spider-Man exists alongside other revamped Marvel characters in Ultimate Marvel titles including
+                        <span class="w3-text-blue">Ultimate X-Men, Ultimate Fantastic Four,Ultimate Iron Man, The
+                            Ultimates, Ultimate Six and Ultimate Origins</span> .
+                    </p>
+                    <p style="word-spacing: 5px; line-height:30px; padding: 10px; text-align:justify;">
+                        Orphaned at the age of six,<span class="w3-text-blue"> Peter Parker</span> is an outcast and withdrawn teenaged science prodigy, who lives in Queens, New York. While attending a field trip to a scientific corporation, he is bitten
+                        by a genetically-modified spider and as a result, begins to develop spider-like superpowers, including enhanced strength, speed, agility, stamina, durability and reflexes, along with the ability to crawl solid surfaces and a sixth
+                        sense, which warns him of imminent danger, all of which he decides to utilize for personal gain. When an armed thief, whom Peter had encountered earlier and refused to stop out of spite, later murders his foster father/uncle in
+                        a robbery, a guilt-ridden Peter is later driven to use his abilities to atone for his partial responsibility in his uncle's murder, as the costumed vigilante Spider-Man. Now equipped with a responsibility to do good and help others
+                        under his Spider-Man alter-ego, Peter struggles to balance high school life and studies, his job as a web designer for the Daily Bugle, his relationship with his girlfriend Mary-Jane Watson, his family life with his widowed aunt,
+                        and his double life as Spider-Man, as he faces off against both superhuman and criminal threats to his home of New York City and contends with the hostility of the general public and the police authorities.
+                    </p>
+                </article>
+                <article class="w3-panel">
+                    <h3>Battle of New York</h3>
+                    <p>Aug 9, 2021</p>
+                    <img src="/MARVEL/The_Avengers_NY.png" alt="" style="width: 100%;">
+                    <p style="word-spacing: 5px; line-height:30px; padding-left:50px; text-align:justify; font-style: italic; font-size: 14px;">
+                        "Everything's changing. A little while ago, most people went to bed thinking that the craziest thing in the world was a billionaire in a flying metal suit. Then aliens invaded New York and were beaten back by, among others, a giant green monster, a costumed
+                        hero from the 40s, and a god."
+                        <br>― <span class="w3-text-blue">Maria Hill</span> to <span class="w3-text-blue">Grant
+                            Ward</span>.
+                        <p style="word-spacing: 5px; line-height:30px; padding: 10px; text-align:justify; font-size: 14px;">
+                            The Battle of New York[2], also known as the Attack on New York[3], the Attack on Midtown Manhattan[3], the Manhattan Crisis[3], and the Incident[4], was a major battle between the Avengers and Loki, along with his borrowed Chitauri army, in Manhattan,
+                            New York City.
+                        </p>
+                    </p>
+                    <p style="word-spacing: 5px; line-height:30px; padding: 10px; text-align:justify; font-size: 14px;">
+                        According to Loki's plan, the Battle of New York was meant to be the first of many attacks in his quest to subjugate Earth, but the actions of the Avengers stemmed the Chitauri Invasion before it could spread. The Battle of New York is considered a monumental
+                        event in human history, and publicly confirmed the existence of extraterrestrials to Earth's citizens.
+                    </p>
+                </article>
+            </div>
+            <aside class="w3-half">
+                <div class="w3-panel w3-center" style="width: 100%;">
+                    <h3 class="w3-center">ABOUT AUTHOR</h3>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFvoUPlJ5ATS4pJ-xzNMmXGdEdJx9W7nOB9d_S8n6iZkV8wKhWYKNumsnVDou8QxFUgdU&usqp=CAU" class="w3-margin-top w3-spin" alt="stan" width="250px" height="250px" style="border-radius: 50%;">
+                    <p style="word-spacing: 5px; line-height:30px; padding-left:50px; text-align:justify; font-style: italic; font-size: 14px;">
+                        Stan Lee[1] (born Stanley Martin Lieber /ˈliːbər/; December 28, 1922 – November 12, 2018) was an American comic book writer, editor, publisher, and producer. He rose through the ranks of a family-run business to become Marvel Comics' primary creative
+                        leader for two decades, leading its expansion from a small division of a publishing house to a multimedia corporation that dominated the comics and film industries.
+                    </p>
+                    <p style="word-spacing: 5px; line-height:30px; padding-left:50px; text-align:justify; font-size: 14px;">
+                        Lee was inducted into the comic book industry's Will Eisner Award Hall of Fame in 1994 and the Jack Kirby Hall of Fame in 1995. He received the NEA's National Medal of Arts in 2008.
+                    </p>
+                </div>
+                <div class="w3-panel w3-center" style="width: 100%;">
+                    <h3 class="w3-center">POPULAR POST</h3>
+                    <div class="container w3-section w3-display-container w3-opacity-min w3-hover-opacity-off">
+                        <img src="https://www.gamerevolution.com/assets/uploads/2021/07/marvel-watch-order-make-sense-1280x720.jpg" alt="" width="100%">
+                        <div class="w3-display-middle w3-display-hover w3-large">
+                            <button type="button" class="w3-animate-zoom w3-btn w3-round-xlarge w3-text-white" style="background-color: #F7354E;">Start Reading</button>
+                        </div>
+                        <p class="w3-text-white w3-red w3-container w3-round w3-margin-top" style="word-spacing: 5px; line-height:30px;  text-align:justify;">How to watch Marvel Movies in order that makes sense</p>
+
+                    </div>
+                    <div class="container w3-section w3-display-container w3-opacity-min w3-hover-opacity-off">
+                        <img src="https://thekingdominsider.com/wp-content/uploads/2019/10/Avengers-Endgame-Question-Marvel-Marketing-Trailer-696x366.jpg" alt="" width="100%">
+                        <div class="w3-display-middle w3-display-hover w3-large">
+                            <button type="button" class="w3-animate-zoom w3-btn w3-round-xlarge w3-text-white" style="background-color: #F7354E;">Start Reading</button>
+                        </div>
+                        <p class="w3-text-white w3-red w3-container w3-round w3-margin-top" style="word-spacing: 5px; line-height:30px;  text-align:justify;">NEWS: MARVEL Will Film In Australia For The Foreseeable Future</p>
+                    </div>
+                    <div class="container w3-section w3-display-container w3-opacity-min w3-hover-opacity-off">
+                        <img src="https://i.pinimg.com/originals/a5/f1/85/a5f1852140cecd83bc53d1b55f307609.jpg" alt="" width="100%">
+                        <div class="w3-display-middle w3-display-hover w3-large">
+                            <button type="button" class="w3-animate-zoom w3-btn w3-round-xlarge w3-text-white" style="background-color: #F7354E;">Start Reading</button>
+                        </div>
+                        <p class="w3-text-white w3-red w3-container w3-round w3-margin-top" style="word-spacing: 5px; line-height:30px;  text-align:justify;">The 6 Biggest Bombshells from Marvel's Insane Comic-Con Panel</p>
+                    </div>
+                    <div class="container w3-section w3-display-container w3-opacity-min w3-hover-opacity-off">
+                        <img src="https://www.joblo.com/assets/images/joblo/news/2018/12/Kevin-Feige-Fox-Marvel-time-913.jpg" alt="" width="100%">
+                        <div class="w3-display-middle w3-display-hover w3-large">
+                            <button type="button" class="w3-animate-zoom w3-btn w3-round-xlarge w3-text-white" style="background-color: #F7354E;">Start Reading</button>
+                        </div>
+                        <p class="w3-text-white w3-red w3-container w3-round w3-margin-top" style="word-spacing: 5px; line-height:30px;  text-align:justify;">Kevin Feige Hopes To Reacquire All Marvel Characters One Day</p>
+                    </div>
+
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <!-- !Image gallery -->
+    <div class="w3-container w3-section w3-center" id="gallery">
+        <h1>Gallery</h1>
+        <div class="w3-row-padding w3-margin-top">
+
+            <div class="w3-col s12 m4 l4">
+                <div class="w3-card">
+                    <img src="/MARVEL/avengers.jpg" style="width:100%" onclick="w3.addStyle('#avengers','display','block')">
+                    <div class="w3-container">
+                        <h4>Avengers</h4>
+                    </div>
                 </div>
             </div>
-            </div>
-                `
-                    sportsNewsHtml += sportsNews;
-                }
-                row.innerHTML = sportsNewsHtml
-            };
-        };
-    </script>
-    <script>
-        //async-await method
-        async function getEntertainmentNews() {
-            var row = document.querySelectorAll(".row")[1];
-            let url = "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=c0f68841be2847279dd60256cb0b84a4";
-            const EntertainmentNews = await fetch(url);
-            const EntertainmentNewsObj = await EntertainmentNews.json();
-            const articles = EntertainmentNewsObj.articles;
-            let newsHtml = "";
-            for (const element of articles) {
-                let news = `<div class="col-lg-4 my-5 w3-animate-zoom">
-                    <div class="card shadow-lg w3-round-large " >
-                <img class="card-img-top " src="${element.urlToImage}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-title">Title: ${element["title"]}</p>
-                  <div class="card-footer">
-                    <a href="${element.url}" class="btn btn-danger">Read More</a>
-                  </div>
+
+            <div class="w3-col s12 m4 l4">
+                <div class="w3-card">
+                    <img src="/MARVEL/Stark.jpg" style="width:100%" onclick="w3.addStyle('#stark','display','block')">
+                    <div class="w3-container">
+                        <h4>Monterosso</h4>
+                    </div>
                 </div>
             </div>
-            </div>
-                `
-                newsHtml += news;
-            }
-            row.innerHTML = newsHtml
 
-        };
-    </script>
-    <script>
-        //promise method
-        const getTechnologyNews = () => {
-            var row = document.querySelectorAll(".row")[1];
-            fetch("https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=c0f68841be2847279dd60256cb0b84a4")
-                .then((response) => response.json())
-                .then((data) => {
-                    const TechnologyNews = data.articles;
-                    let TechnologyNewsHtml = "";
-                    for (const element of TechnologyNews) {
-                        let news = `<div class="col-lg-4 my-5 w3-animate-zoom">
-                <div class="card shadow-lg w3-round-large " >
-            <img class="card-img-top " src="${element.urlToImage}" alt="Card image cap">
-            <div class="card-body">
-                <p class="card-title">Title: ${element["title"]}</p>
-              <div class="card-footer">
-                <a href="${element.url}" class="btn btn-danger">Read More</a>
-              </div>
+            <div class="w3-col s12 m4 l4">
+                <div class="w3-card">
+                    <img src="/MARVEL/Cap.jpg" style="width:100%" onclick="w3.addStyle('#Cap','display','block')">
+                    <div class="w3-container">
+                        <h4>Vernazza</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="w3-row-padding w3-margin-top">
+
+            <div class="w3-col s12 m4 l4">
+                <div class="w3-card">
+                    <img src="/MARVEL/THor.jpg" style="width:100%" onclick="w3.addStyle('#THor','display','block')">
+                    <div class="w3-container">
+                        <h4>Manarola</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-col s12 m4 l4">
+                <div class="w3-card">
+                    <img src="/MARVEL/jadugar.jpg" style="width:100%" onclick="w3.addStyle('#jadugar','display','block')">
+                    <div class="w3-container">
+                        <h4>Corniglia</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-col s12 m4 l4">
+                <div class="w3-card">
+                    <img src="/MARVEL/spidy.jpg" style="width:100%" onclick="w3.addStyle('#spidy','display','block')">
+                    <div class="w3-container">
+                        <h4>Riomaggiore</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- !modals -->
+    <div class="modal">
+        <div class="w3-modal w3-animate-zoom" id="avengers">
+
+            <div class="w3-modal-content w3-card-4 w3-round-large">
+                <span onclick="w3.addStyle('#avengers','display','none')" class=" w3-display-topright w3-button">
+                    <i class="fas fa-times fa-3x w3-hover-text-red"></i>
+                </span>
+                <img src="/MARVEL/avengers.jpg" style="width:100%">
             </div>
         </div>
+
+        <div class="w3-modal w3-animate-zoom" id="stark">
+            <div class="w3-modal-content w3-card-4 w3-round-large">
+                <span onclick="w3.addStyle('#stark','display','none')" class=" w3-display-topright w3-button">
+                    <i class="fas fa-times fa-3x w3-hover-text-red"></i>
+                </span>
+                <img src="/MARVEL/Stark.jpg" style="width:100%">
+            </div>
         </div>
-            `
-                        TechnologyNewsHtml += news;
-                    }
-                    row.innerHTML = TechnologyNewsHtml
-                })
-        };
-    </script>
-    <script>
-        async function getHealthNews() {
-            var row = document.querySelectorAll(".row")[1];
-            let url = "https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=c0f68841be2847279dd60256cb0b84a4";
-            const healthNews = await fetch(url);
-            const healthNewsObj = await healthNews.json();
-            const articles = healthNewsObj.articles;
-            let newsHtml = "";
-            for (const element of articles) {
-                let news = `<div class="col-lg-4 my-5 w3-animate-zoom">
-                    <div class="card shadow-lg w3-round-large " >
-                <img class="card-img-top " src="${element.urlToImage}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-title">Title: ${element["title"]}</p>
-                  <div class="card-footer">
-                    <a href="${element.url}" class="btn btn-danger">Read More</a>
-                  </div>
+        <div class="w3-modal w3-animate-zoom" id="Cap">
+            <div class="w3-modal-content w3-card-4 w3-round-large">
+                <span onclick="w3.addStyle('#Cap','display','none')" class=" w3-display-topright w3-button">
+                    <i class="fas fa-times fa-3x w3-hover-text-red"></i>
+                </span>
+                <img src="/MARVEL/Cap.jpg" style="width:100%">
+            </div>
+        </div>
+        <div class="w3-modal w3-animate-zoom" id="THor">
+            <div class="w3-modal-content w3-card-4 w3-round-large">
+                <span onclick="w3.addStyle('#THor','display','none')" class=" w3-display-topright w3-button">
+                    <i class="fas fa-times fa-3x w3-hover-text-red"></i>
+                </span>
+                <img src="/MARVEL/THor.jpg" style="width:100%">
+            </div>
+        </div>
+        <div class="w3-modal w3-animate-zoom" id="jadugar">
+            <div class=" w3-modal-content w3-card-4 w3-round-large ">
+                <span onclick="w3.addStyle( '#jadugar', 'display', 'none') " class=" w3-display-topright w3-button ">
+                    <i class="fas fa-times fa-3x w3-hover-text-red "></i>
+                </span>
+                <img src="/MARVEL/jadugar.jpg" style="width:100% ">
+            </div>
+        </div>
+        <div class="w3-modal w3-animate-zoom" id="spidy">
+            <div class=" w3-modal-content w3-card-4 w3-round-large ">
+                <span onclick="w3.addStyle( '#spidy', 'display', 'none') " class=" w3-display-topright w3-button ">
+                    <i class="fas fa-times fa-3x w3-hover-text-red "></i>
+                </span>
+                <img src="/MARVEL/spidy.jpg " style="width:100% ">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- !Pagination -->
+    <div class=" w3-center w3-section ">
+        <div class="w3-bar pagination w3-large ">
+            <a href="# " class="w3-bar-item w3-button w3-hover-red w3-margin-right ">&laquo;</a>
+            <a href="# " class="w3-bar-item w3-button w3-green w3-margin-right ">1</a>
+            <a href="# " class="w3-bar-item w3-button w3-hover-red w3-margin-right ">2</a>
+            <a href="# " class="w3-bar-item w3-button w3-hover-red w3-margin-right ">3</a>
+            <a href="# " class="w3-bar-item w3-button w3-hover-red w3-margin-right ">4</a>
+            <a href="# " class="w3-bar-item w3-button w3-hover-red w3-margin-right ">5</a>
+            <a href="# " class="w3-button w3-bar-item w3-hover-red w3-margin-right ">&raquo;</a>
+        </div>
+    </div>
+
+    <!-- !chat bot -->
+    <div class="w3-button w3-circle w3-xxlarge w3-black chat-bot ">
+        <i class="fas fa-envelope w3-text-green "></i>
+    </div>
+
+    <!-- ! fOoter portion -->
+    <footer class="w3-mobile w3-round-large ">
+        <div class="w3-row w3-text-white ">
+
+            <div class="w3-quarter ">
+                <h4>About us</h4>
+                <p class="w3-small ">AnimeNerd is a channel where you can learn frontend as well as backend along with creative CSS animations and effects.</p>
+                <h4>Contact Us</h4>
+                <i class="fa fa-phone "></i> &#160; <span class="w3-small ">+91 9548582343</span> <br>
+                <i class="fa fa-envelope "></i> &#160; <span class="w3-small ">abhisheknegi969@gmail.com</span> <br>
+            </div>
+
+            <div class="w3-quarter ">
+                <h4 class="w3-center ">Our Services</h4>
+                <div class="w3-bar-block w3-center ">
+                    <div class="w3-bar-item w3-hover-text-red w3-small ">SEO</div>
+                    <div class="w3-bar-item w3-hover-text-red w3-small ">Web Design</div>
+                    <div class="w3-bar-item w3-hover-text-red w3-small ">Graphic Design</div>
+                    <div class="w3-bar-item w3-hover-text-red w3-small ">Android Development</div>
+                    <div class="w3-bar-item w3-hover-text-red w3-small ">Software Configuration</div>
+
+                </div>
+
+            </div>
+
+            <div class="w3-half ">
+                <h4 class="w3-center ">Subscribe us</h4>
+                <form action="backend.php " class="w3-card ">
+                    <input type="text " class="w3-input w3-black w3-border-black w3-section w3-round w3-text-white " placeholder="Enter email address " style="outline: none; ">
+                    <button class="w3-button w3-hover-green w3-round w3-block ">Send</button>
+                </form>
+                <div class="w3-panel w3-center " style="width: 100%; ">
+                    <i class="fab fa-facebook fa-2x w3-margin-right " style="color: #3B5998; "></i>
+                    <i class="fab fa-twitter fa-2x w3-margin-right " style="color:rgb(29,161,242) "></i>
+                    <i class="fab fa-instagram fa-2x w3-margin-right " style="color: #8a3ab9; "></i>
+                    <i class="fab fa-google-plus-g fa-2x w3-margin-right " style="color: #f02c2c; "></i>
+                    <a href="# " class="w3-margin-left ">
+                        <i class="fas fa-angle-double-up w3-xxlarge w3-hover-text-blue "></i>
+                    </a>
                 </div>
             </div>
-            </div>
-                `
-                newsHtml += news;
-            }
-            row.innerHTML = newsHtml
+        </div>
+        <div class="w3-container ">
+            <p class="w3-center w3-text-white ">
+                Copyright ©2021 <span class="w3-text-red ">Abhishek Negi</span> All Rights Reserved.
+            </p>
+        </div>
+    </footer>
 
-        };
-    </script>
+    <!-- !Back to the top -->
+    <div class="w3-container ">
+        <div class="w3-right-align ">
+
+        </div>
+    </div>
+    <!-- !image modal -->
 
     <script>
-        async function getNews() {
-            var row = document.querySelectorAll(".row")[1];
-            let url = "https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=c0f68841be2847279dd60256cb0b84a4";
-            const BreakingNews = await fetch(url);
-            const BreakingNewsObj = await BreakingNews.json();
-            const articles = BreakingNewsObj.articles;
-            let newsHtml = "";
-            for (const element of articles) {
-                let news = `<div class="col-lg-4 my-5 w3-animate-zoom">
-                    <div class="card shadow-lg w3-round-large " >
-                <img class="card-img-top " src="${element.urlToImage}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-title">Title: ${element["title"]}</p>
-                  <div class="card-footer">
-                    <a href="${element.url}" class="btn btn-danger">Read More</a>
-                  </div>
-                </div>
-            </div>
-            </div>
-                `
-                newsHtml += news;
-            }
-            row.innerHTML = newsHtml
+        function openNav() {
 
-        };
+            document.getElementsByClassName("overlay ")[0].style.height = "100% ";
+        }
+
+        function closeNav() {
+            document.getElementsByClassName("overlay ")[0].style.height = "0% ";
+        }
     </script>
     <script>
-        async function getBusinessNews() {
-            var row = document.querySelectorAll(".row")[1];
-            let url = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=c0f68841be2847279dd60256cb0b84a4";
-            const BusinessNews = await fetch(url);
-            const BusinessNewsObj = await BusinessNews.json();
-            const articles = BusinessNewsObj.articles;
-            let newsHtml = "";
-            for (const element in articles) {
-                let news = `<div class="col-lg-4 my-5 w3-animate-zoom">
-                    <div class="card shadow-lg w3-round-large " >
-                <img class="card-img-top " src="${element.urlToImage}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-title">Title: ${element["title"]}</p>
-                  <div class="card-footer">
-                    <a href="${element.url}" class="btn btn-danger">Read More</a>
-                  </div>
-                </div>
-            </div>
-            </div>
-                `
-                newsHtml += news;
-            }
-            row.innerHTML = newsHtml
+        // Get the video
+        var video = document.getElementById("myVideo");
 
-        };
+        // Get the button
+        var btn = document.getElementById("myBtn");
+
+        // Pause and play the video, and change the button text
+        function myFunction() {
+            if (video.paused) {
+                video.play();
+                btn.innerHTML = `<i class="fas fa-pause w3-xxlarge w3-text-white "></i>`;
+            } else {
+                video.pause();
+                btn.innerHTML = `  <i class="fas fa-play w3-xxlarge w3-text-white "></i>`;
+            }
+        }
     </script>
+    <script src="https://www.w3schools.com/lib/w3.js "></script>
 </body>
 
 </html>
