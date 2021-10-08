@@ -217,7 +217,7 @@
             const BusinessNewsObj = await BusinessNews.json();
             const articles = BusinessNewsObj.articles;
             let newsHtml = "";
-            for (const element of articles) {
+            for (const element in articles) {
                 let news = `<div class="col-lg-4 my-5 w3-animate-zoom">
                     <div class="card shadow-lg w3-round-large " >
                 <img class="card-img-top " src="${element.urlToImage}" alt="Card image cap">
